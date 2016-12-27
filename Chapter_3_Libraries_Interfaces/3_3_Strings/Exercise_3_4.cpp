@@ -12,8 +12,6 @@ Oyashi
 
 using namespace std;
 
-bool EqualIgnoringCase(string str1, string str2);
-
 int main() {
 	string strFirst, strSecond;
 	cout << "Enter first string "; cin >> strFirst;
@@ -28,9 +26,4 @@ int main() {
 	else {
 		cout << "Strings are not equal\n";
 	}
-}
-
-bool EqualIgnoringCase(string str1, string str2) {
-	if (str1.length() == str2.length() && str1.compare(str2) == 0) { return true; }
-	else { return false; }
 }
