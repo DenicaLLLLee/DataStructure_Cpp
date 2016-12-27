@@ -29,3 +29,8 @@ string ConvertToUpperCase(string s) {
 	transform(s.begin(), s.end(), s.begin(), ::toupper);
 	return s;
 }
+
+bool EqualIgnoringCase(string str1, string str2) {
+	if (str1.length() == str2.length() && str1.compare(str2) == 0) { return true; }
+	else { return false; }
+}

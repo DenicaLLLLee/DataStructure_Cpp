@@ -46,5 +46,5 @@ void Error(string str);
 * libraries to configure the application before passing control
 * back to the student program.
 */
-#define main Main
+//#define main Main
 #endif

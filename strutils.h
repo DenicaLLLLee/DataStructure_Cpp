@@ -63,4 +63,9 @@ string ConvertToLowerCase(string s);
 * alphabetic characters converted to upper case.
 */
 string ConvertToUpperCase(string s);
+/*
+* Function: EqualIgnoringCase
+* Usage: EqualIgnoringCase(str1, str2);
+*/
+bool EqualIgnoringCase(string str1, string str2);
 #endif
