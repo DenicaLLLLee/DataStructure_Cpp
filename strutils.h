@@ -83,4 +83,9 @@ bool IsPalindrome(string str);
 * Usage: s = EncodeString(string str, int key);
 */
 string EncodeString(string str, int key);
+/*
+* Function SubString
+* Usage: s = SubString(string s, int pos, int len);
+*/
+string SubString(string s, int pos, int len);
 #endif

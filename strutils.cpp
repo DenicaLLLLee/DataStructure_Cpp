@@ -89,3 +89,15 @@ string EncodeString(string str, int key) {
 	}
 	return encodedString;
 }
+
+string SubString(string s, int pos, int len) {
+	string subString = "";
+	if (pos < 0) pos = 0;
+	if (len > s.length() - pos) len = s.length() - pos;
+	if (pos > s.length() - 1) return subString;
+
+	for (int i = pos; i <= len; i++) {
+		subString += s.at(i);
+	}
+	return subString;
+}
