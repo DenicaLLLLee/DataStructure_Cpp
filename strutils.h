@@ -68,4 +68,19 @@ string ConvertToUpperCase(string s);
 * Usage: EqualIgnoringCase(str1, str2);
 */
 bool EqualIgnoringCase(string str1, string str2);
+/*
+* Function Capitalize
+* Usage: s = Capitalize(string str);
+*/
+string Capitalize(string str);
+/*
+* Function IsPalindrome
+* Usage: IsPalindrome(string str);
+*/
+bool IsPalindrome(string str);
+/*
+* Function EncodeString
+* Usage: s = EncodeString(string str, int key);
+*/
+string EncodeString(string str, int key);
 #endif
