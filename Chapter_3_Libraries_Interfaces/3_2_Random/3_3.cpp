@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <string>
-#include "random.h"
+#include "HeaderFiles\random.h"
 
 enum Symbol
 {

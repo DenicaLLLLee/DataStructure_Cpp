@@ -19,8 +19,9 @@
 * during this phase of the game.
 */
 
-#include "random.h"
 #include <iostream>
+#include "HeaderFiles\random.h"
+
 
 using namespace std;
 

@@ -6,7 +6,7 @@
 */
 
 #include <iostream>
-#include "random.h"
+#include "HeaderFiles\random.h"
 
 #define NO_OF_TRIALS 1000
 
