@@ -9,7 +9,7 @@
 */
 #ifndef _strutils_h
 #define _strutils_h
-#include "Archive\genlib.h"
+#include "HeaderFiles\genlib.h"
 /*
 * Function: IntegerToString
 * Usage: s = IntegerToString(n);

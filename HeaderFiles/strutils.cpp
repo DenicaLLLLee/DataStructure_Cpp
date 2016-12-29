@@ -1,6 +1,6 @@
 
 #include <algorithm>
-#include "Archive\strutils.h"
+#include "HeaderFiles\strutils.h"
 
 string IntegerToString(int num) {
 	return to_string(num);
