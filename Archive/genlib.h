@@ -10,8 +10,10 @@
 */
 #ifndef _genlib_h
 #define _genlib_h
+#include <iostream>
 #include <string>
 #include <exception>
+
 using namespace std;
 /*
 * Class: ErrorException
