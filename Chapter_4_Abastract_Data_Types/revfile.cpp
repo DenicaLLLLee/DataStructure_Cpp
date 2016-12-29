@@ -4,8 +4,8 @@
 * This program reads in a text file and then displays the lines of
 * the file in reverse order.
 */
-#include "genlib.h"
-#include "simpio.h"
+#include "HeaderFiles\genlib.h"
+#include "HeaderFiles\simpio.h"
 #include <vector>
 #include <string>
 #include <iostream>
