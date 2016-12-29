@@ -10,7 +10,7 @@ c. If pos is greater than s.length() - 1, SubString returns the empty string.
 */
 
 #include <iostream>
-#include "strutils.h"
+#include "HeaderFiles\strutils.h"
 
 using namespace std;
 
