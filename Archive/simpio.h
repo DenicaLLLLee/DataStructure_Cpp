@@ -7,7 +7,7 @@
 */
 #ifndef _simpio_h
 #define _simpio_h
-#include "genlib.h"
+#include "Archive\genlib.h"
 /*
 * Function: GetInteger
 * Usage: n = GetInteger();
