@@ -22,7 +22,7 @@ following strings are all unbalanced for the reasons indicated:
 using namespace std;
 
 int main() {
-	string givenString = "{ s = 2 * (a[2] + 3); x = (1 + (2)); }";
+	string givenString = "{ s = 2 * (a[2 + 3); x = (1 + (2)); }";
 	if (bracketCheck(givenString)) {
 		cout << "Brackets are properly matched" << endl;
 	}
