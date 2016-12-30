@@ -24,12 +24,9 @@ would return false.
 #include <vector>
 #include <string>
 #include "HeaderFiles\strutils.h"
-//#include "HeaderFiles\vectorutil.h"
+#include "HeaderFiles\vectorutil.h"
 
 using namespace std;
-
-bool ReadVector(ifstream & infile, vector<double> & vec);
-void DisplayVector(vector<double> & vec);
 
 int main() {
 	ifstream inputfile;
@@ -54,36 +51,4 @@ int main() {
 		cout << "EOF" << endl;
 
 	inputfile.close();
-}
-
-bool ReadVector(ifstream & infile, vector<double> & vec) {
-	string line = "";
-	vec.clear();
-	while(infile.good())
-	{
-		streampos prevPos = infile.tellg();
-		getline(infile, line);
-		if (line == "") {
-			return true;
-		}
-		else {
-			getline(infile, line);
-			if (!infile.eof()) {
-				infile.seekg(prevPos);
-				getline(infile, line);
-				vec.push_back(StringToReal(line));
-			}
-			else
-				return true;
-		}
-	}
-	return false;
-}
-
-void DisplayVector(vector<double> & vec) {
-	std::vector<double>::iterator itr;
-	for (itr = vec.begin(); itr != vec.end(); itr++) {
-		std::cout << *itr << " ";
-	}
-	std::cout << std::endl;
 }
