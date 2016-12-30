@@ -51,45 +51,63 @@ string has properly matching brackets.
 Added : 12/30/2016
 */
 bool bracketCheck(std::string str) {
-	std::stack<char> store;
+	std::stack<char> bracketStack;
+	char expectedBrckt = ' ';
+	bool bracketFound = true;
 	for (int i = 0; i < str.length(); i++) {
-		if (str[i] == ')') {
-			while (true) {
-				store.pop();
-				if (store.top() == '(') {
-					store.pop();
-					break;
-				}
+		if (str[i] == '{') {
+			bracketStack.push(str[i]);
+		}
+		else if (str[i] == '(') {
+			bracketStack.push(str[i]);
+		}
+		else if (str[i] == '[') {
+			bracketStack.push(str[i]);
+		}
+		else if (str[i] == '}') {
+			if (bracketStack.top() == '{') {
+				bracketStack.pop();
+				if (!bracketStack.empty())
+					expectedBrckt = bracketStack.top();
+				bracketFound = true;
+			}
+			else {
+				bracketFound = false;
+				break;
+			}
+		}
+		else if (str[i] == ')') {
+			if (bracketStack.top() == '(') {
+				bracketStack.pop();
+				if (!bracketStack.empty())
+					expectedBrckt = bracketStack.top();
+				bracketFound = true;
+			}
+			else {
+				bracketFound = false;
+				break;
 			}
 		}
 		else if (str[i] == ']') {
-			while (true) {
-				store.pop();
-				if (store.top() == '[') {
-					store.pop();
-					break;
-				}
+			if (bracketStack.top() == '[') {
+				bracketStack.pop();
+				if (!bracketStack.empty())
+					expectedBrckt = bracketStack.top();
+				bracketFound = true;
+			}
+			else {
+				bracketFound = false;
+				break;
 			}
 		}
-		else if (str[i] == '}') {
-			while (true) {
-				store.pop();
-				if (store.top() == '{') {
-					store.pop();
-					break;
-				}
-			}
-		}
-		else {
-			store.push(str[i]);
-		}
+		else
+			bracketFound = false;
 	}
-	if (store.empty()) {
+	if (bracketFound) {
 		return true;
 	}
-	else {
+	else
 		return false;
-	}
 }
 #endif // !__stackutility_h__
 
