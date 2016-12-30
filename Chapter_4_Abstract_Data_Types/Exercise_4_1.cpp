@@ -14,6 +14,7 @@ I have modified the program to remove any user given number
 #include <iostream>
 #include <random>
 #include <time.h>
+#include <algorithm>
 #include "HeaderFiles\vectorutil.h"
 
 #define MAX 10
@@ -21,19 +22,20 @@ I have modified the program to remove any user given number
 
 using namespace std;
 
-void GetInput(int &inputElement);
+template <typename T>
+void GetInput(T &inputElement);
 
 int main() {
-	int inputElement = 0;
+	double inputElement = 0.0;
 	srand(time(NULL));
-	vector<int> vec;
-	
 
-	for (int i = MIN; i < MAX; i++) {
-		vec.push_back(rand() % MAX + MIN);
+	vector<int> vec;
+
+	for (int i = MIN; i < 10; i++) {
+		vec.push_back(double(rand()) / double( MAX + 1));
 	}
 	
-	cout << "Random number generation" << endl;
+	std::cout << "Random number generation" << std::endl;
 	DisplayVector(vec);
 
 	GetInput(inputElement);
@@ -42,6 +44,7 @@ int main() {
 
 }
 
-void GetInput(int &inputElement) {
+template <typename T>
+void GetInput(T &inputElement) {
 	cout << "Please enter the element to be removed "; cin >> inputElement;
 }
