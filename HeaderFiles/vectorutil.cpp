@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <fstream>
 #include "HeaderFiles\strutils.h"
-#include "vectorutil.h"
+#include "HeaderFiles\vectorutil.h"
 
 using namespace std;
 
@@ -73,4 +73,26 @@ bool ReadVector(ifstream & infile, vector<int> & vec) {
 		}
 	}
 	return false;
+}
+
+bool ReadIntoVector(ifstream & infile, vector<string> & vec) {
+	string line = "";
+	bool retVal = true;
+	while (infile.good()) {
+		getline(infile, line);
+		vec.push_back(line);
+	}
+	if (vec.empty()) {
+		retVal = false;
+	}
+	return retVal;
+}
+
+void SortTextFile(std::ifstream & infile, std::vector<string> & vec) {
+	string line;
+	while (infile.good()) {
+		getline(infile, line);
+		vec.push_back(line);
+	}
+	sort(vec.begin(), vec.end());
 }
