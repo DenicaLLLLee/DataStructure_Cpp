@@ -63,7 +63,7 @@ template <class T>
 void DisplayVector(std::vector<T> & vec) {
 	std::vector<T>::iterator itr;
 	for (itr = vec.begin(); itr != vec.end(); itr++) {
-		std::cout << *itr << " ";
+		std::cout << *itr << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -81,7 +81,7 @@ function. Then you can use vectorutil.cpp easily.
 */
 //bool ReadVector(ifstream & infile, vector<int> & vec);
 template <class T>
-bool ReadVector(ifstream & infile, vector<T> & vec) {
+bool ReadVector(std::ifstream & infile, std::vector<T> & vec) {
 	string line = "";
 	vec.clear();
 	while (infile.good())
@@ -103,6 +103,55 @@ bool ReadVector(ifstream & infile, vector<T> & vec) {
 		}
 	}
 	return false;
+}
+
+/*
+Function: ReadIntoVector
+Usage: ReadIntoVector(inputFile, vec);
+------------------------------
+This function return true if it
+successfully reads file lines into vector.
+*/
+/*
+Note: Uncomment following line to use this header
+file for int type and comment the generic form
+function. Then you can use vectorutil.cpp easily.
+*/
+//bool ReadIntoVector(ifstream & infile, vector<string> & vec);
+template <class T>
+bool ReadIntoVector(std::ifstream & infile, std::vector<T> & vec) {
+	string line = "";
+	bool retVal = true;
+	while (infile.good()) {
+		getline(infile, line);
+		vec.push_back(line);
+	}
+	if (vec.empty()) {
+		retVal = false;
+	}
+	return retVal;
+}
+
+/*
+Function: SortTextFile
+Usage: SortTextFile(inputFile, vec);
+------------------------------
+This function sorts the contents of the file.
+*/
+/*
+Note: Uncomment following line to use this header
+file for int type and comment the generic form
+function. Then you can use vectorutil.cpp easily.
+*/
+//void SortTextFile(ifstream & infile, vector<string> & vec);
+template <class T>
+void SortTextFile(std::ifstream & infile, std::vector<T> & vec) {
+	string line;
+	while (infile.good()) {
+		getline(infile, line);
+		vec.push_back(line);
+	}
+	sort(vec.begin(), vec.end());
 }
 #endif // !__vectorutil_h__
 
