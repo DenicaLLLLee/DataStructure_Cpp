@@ -6,7 +6,7 @@
 
 #include <cstdlib>
 #include <ctime>
-#include "random.h"
+#include "HeaderFiles\random.h"
 
 int RandomInteger(int low, int high){
 	double d = double(rand()) / (double(RAND_MAX) + 1);

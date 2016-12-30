@@ -88,4 +88,9 @@ string EncodeString(string str, int key);
 * Usage: s = SubString(string s, int pos, int len);
 */
 string SubString(string s, int pos, int len);
+/*
+* Function Error
+* Usage: Error(string s);
+*/
+void Error(string s);
 #endif

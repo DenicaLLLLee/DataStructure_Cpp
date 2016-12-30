@@ -1,4 +1,3 @@
-
 #include <algorithm>
 #include "HeaderFiles\strutils.h"
 
@@ -100,4 +99,8 @@ string SubString(string s, int pos, int len) {
 		subString += s.at(i);
 	}
 	return subString;
+}
+
+void Error(string s) {
+	cout << s << endl;
 }
