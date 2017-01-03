@@ -86,3 +86,42 @@ int BinarySearch(std::string key, std::string array[], int low, int high) {
 		return BinarySearch(key, array, mid + 1, high);
 	}
 }
+
+/*
+* Function: IsEven
+* Usage: if (IsEven(n)) . . .
+* ---------------------------
+* This function returns true if n is even. The number 0
+* is considered even by definition; any other number is
+* even if its predecessor is odd. Note that this function
+* is defined to take an unsigned argument and is therefore
+* not applicable to negative integers.
+*/
+bool IsEven(unsigned int n) {
+	if (n == 0) {
+		return true;
+	}
+	else {
+		return IsOdd(n - 1);
+	}
+}
+/*
+* Function: IsOdd
+* Usage: if (IsOdd(n)) . . .
+* --------------------------
+* This function returns true if n is odd, where a number
+* is defined to be odd if it is not even. Note that this
+* function is defined to take an unsigned argument and is
+* therefore not applicable to negative integers.
+*/
+bool IsOdd(unsigned int n) {
+	return !IsEven(n);
+}
+
+int cannonBall(int height) {
+	int sum = height * height;
+	if (height == 1) 
+		return sum;
+	else
+		return sum + cannonBall(height - 1);
+}
