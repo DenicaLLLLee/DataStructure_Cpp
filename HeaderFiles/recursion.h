@@ -11,6 +11,7 @@ int BinarySearch(std::string key, std::string array[], int low, int high);
 bool IsEven(unsigned int n);
 bool IsOdd(unsigned int n);
 int cannonBall(int height);
+int RaiseIntToPower(int n, int k);
 #endif // !__recursion_h__
 
 

@@ -125,3 +125,12 @@ int cannonBall(int height) {
 	else
 		return sum + cannonBall(height - 1);
 }
+
+int RaiseIntToPower(int n, int k) {
+	if (k == 0) {
+		return 1;
+	}
+	else {
+		return n * RaiseIntToPower(n, k - 1);
+	}
+}
