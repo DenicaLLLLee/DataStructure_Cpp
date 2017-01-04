@@ -134,3 +134,12 @@ int RaiseIntToPower(int n, int k) {
 		return n * RaiseIntToPower(n, k - 1);
 	}
 }
+
+int GCD(int x, int y) {
+	if (x % y == 0) {
+		return y;
+	}
+	else {
+		return GCD(y, x % y);
+	}
+}

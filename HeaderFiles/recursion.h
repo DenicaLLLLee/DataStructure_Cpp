@@ -12,6 +12,7 @@ bool IsEven(unsigned int n);
 bool IsOdd(unsigned int n);
 int cannonBall(int height);
 int RaiseIntToPower(int n, int k);
+int GCD(int x, int y);
 #endif // !__recursion_h__
 
 
