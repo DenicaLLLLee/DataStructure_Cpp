@@ -143,3 +143,30 @@ int GCD(int x, int y) {
 		return GCD(y, x % y);
 	}
 }
+
+int DigitSum(int n) {
+	if (n / 10 == 0) {
+		return n;
+	}
+	else {
+		return (n % 10) + DigitSum(n / 10);
+	}
+}
+
+int DigitRoot(int n) {
+	if (n / 10 == 0) {
+		return n;
+	}
+	else {
+		return DigitRoot(DigitSum(n));
+	}
+}
+
+int combination(int n, int k) {
+	if (n == 0 || k == 0 || n == k) {
+		return 1;
+	}
+	else {
+		return combination(n - 1, k - 1) + combination(n - 1, k);
+	}
+}

@@ -13,6 +13,10 @@ bool IsOdd(unsigned int n);
 int cannonBall(int height);
 int RaiseIntToPower(int n, int k);
 int GCD(int x, int y);
+int DigitSum(int n);
+int DigitRoot(int n);
+std::string Reverse(std::string str);
+int combination(int n, int k);
 #endif // !__recursion_h__
 
 
