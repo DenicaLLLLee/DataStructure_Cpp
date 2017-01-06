@@ -170,3 +170,26 @@ int combination(int n, int k) {
 		return combination(n - 1, k - 1) + combination(n - 1, k);
 	}
 }
+
+std::string Reverse(std::string str) {
+	if (str.length() == 0)
+		return "\n";
+	else
+		return str[str.length() - 1] + Reverse(str.substr(0, str.length() - 1));
+}
+
+std::string itos(int num) {
+	/*
+		In ASCII table, value of decimal '0' = 48
+		So, when we add any integer to 48
+		it gets converted into character form
+		of that integer.
+	*/
+	char digit = num % 10 + '0';
+	if (num / 10 == 0) {
+		return std::string(1,digit);
+	}
+	else {
+		return itos(num / 10) + digit;
+	}
+}

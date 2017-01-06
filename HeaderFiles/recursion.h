@@ -17,6 +17,7 @@ int DigitSum(int n);
 int DigitRoot(int n);
 std::string Reverse(std::string str);
 int combination(int n, int k);
+std::string itos(int num);
 #endif // !__recursion_h__
 
 
