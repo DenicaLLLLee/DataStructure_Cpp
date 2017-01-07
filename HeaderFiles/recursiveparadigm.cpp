@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "recursiveparadigm.h"
 
 void MoveSingleDisk(char start, char finish)
@@ -8,7 +9,7 @@ void MoveSingleDisk(char start, char finish)
 }
 
 void MoveTower(int n, char start, char finish, char temp) {
-	if (n == 1) {
+	if (n == 0) {
 		MoveSingleDisk(start, finish);
 	}
 	else {
@@ -51,4 +52,30 @@ int NHanoiMoves(int n) {
 		NHanoiMoves(n - 1);
 	}
 	return count;
+}
+
+void ListMnemonics(std::string str) {
+	char* result = new char[str.length()];
+	result[str.length()] = '\0';
+	PhoneDigits(str, 0, result);
+}
+
+void PhoneDigits(std::string str, int currentDigit, char* output) {
+	const char hashTable[10][5] = { "", "", "abc", "def", "ghi", "jkl",
+		"mno", "pqrs", "tuv", "wxyz" };
+
+	if (currentDigit == str.length())
+	{
+		std::cout << output << " ";
+		return;
+	}
+	else {
+		for (int i = 0; i < strlen(hashTable[str[currentDigit] - '0']); i++)
+		{
+			output[currentDigit] = hashTable[str[currentDigit] - '0'][i];
+			PhoneDigits(str, currentDigit + 1, output);
+			if (str[currentDigit] == 0 || str[currentDigit] == 1)
+				return;
+		}
+	}
 }
