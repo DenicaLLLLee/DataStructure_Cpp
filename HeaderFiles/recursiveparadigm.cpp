@@ -39,3 +39,16 @@ void RecursivePermute(std::string prefix, std::string rest) {
 		}
 	}
 }
+
+int NHanoiMoves(int n) {
+	static int count = 0;
+	if (n == 1) {
+		count++;
+	}
+	else {
+		NHanoiMoves(n - 1);
+		count++;
+		NHanoiMoves(n - 1);
+	}
+	return count;
+}
