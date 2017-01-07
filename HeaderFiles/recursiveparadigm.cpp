@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <set>
 #include "recursiveparadigm.h"
 
 void MoveSingleDisk(char start, char finish)
@@ -77,5 +78,18 @@ void PhoneDigits(std::string str, int currentDigit, char* output) {
 			if (str[currentDigit] == 0 || str[currentDigit] == 1)
 				return;
 		}
+	}
+}
+
+void ListSubsets(std::string str) {
+	RecursiveSubset("", str);
+}
+
+void RecursiveSubset(std::string prefix, std::string rest) {
+	if (rest == "")
+		std::cout << "{" << prefix << "}" << std::endl;
+	else {
+		RecursiveSubset(prefix + rest.substr(0,1), rest.substr(1));
+		RecursiveSubset(prefix, rest.substr(1));
 	}
 }

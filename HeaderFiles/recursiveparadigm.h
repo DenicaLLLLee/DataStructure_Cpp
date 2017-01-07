@@ -8,5 +8,7 @@ void RecursivePermute(std::string prefix, std::string rest);
 int NHanoiMoves(int n);
 void ListMnemonics(std::string str);
 void PhoneDigits(std::string str, int currentDigit, char* output);
+void ListSubsets(std::string str);
+void RecursiveSubset(std::string prefix, std::string rest);
 #endif // !__recursiveparadigm_h__
 
