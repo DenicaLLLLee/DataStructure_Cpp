@@ -56,3 +56,32 @@ void Merge(std::vector<int> & vec, std::vector<int> & v1, std::vector<int> & v2)
 	while (p1 < n1) vec.push_back(v1[p1++]);
 	while (p2 < n2) vec.push_back(v2[p2++]);
 }
+
+void QuickSort(std::vector<int> & vec) {
+	QuickSort(vec, 0, vec.size() - 1);
+}
+
+void QuickSort(std::vector<int> & vec, int start, int finish) {
+	if (start >= finish)return;
+	int boundary = Partition(vec, start, finish);
+	QuickSort(vec, start, boundary - 1);
+	QuickSort(vec, boundary + 1, finish);
+}
+
+int Partition(std::vector<int> & vec, int start, int finish) {
+	int pivot = vec[start];
+	int lh = start + 1;
+	int rh = finish;
+	while (true) {
+		while (lh < rh && vec[rh] > pivot) rh--;
+		while (rh > lh && vec[lh] < pivot) lh++;
+		if (lh == rh)break;
+		int temp = vec[lh];
+		vec[lh] = vec[rh];
+		vec[rh] = temp;
+	}
+	if (vec[lh] >= pivot) return start;
+	vec[start] = vec[lh];
+	vec[lh] = pivot;
+	return lh;
+}
