@@ -85,3 +85,29 @@ int Partition(std::vector<int> & vec, int start, int finish) {
 	vec[lh] = pivot;
 	return lh;
 }
+
+long RaiseToPower(int x, int n) {
+	if (n == 0) return 1;
+	long temp = RaiseToPower(x, n / 2);
+	if (n % 2 == 0) {
+		return temp * temp;
+	}
+	else {
+		return x * temp * temp;
+	}
+}
+
+void InsertionSort(int *arr, int size) {
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size - 1; j++)
+		{
+			if (arr[j] > arr[j + 1]) {
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+		}
+		
+	}
+}
