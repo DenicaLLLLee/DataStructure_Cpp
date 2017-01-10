@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include "HeaderFiles\sorting.h"
 
@@ -97,7 +98,7 @@ long RaiseToPower(int x, int n) {
 	}
 }
 
-void InsertionSort(int *arr, int size) {
+void InsertionSort(int *(&arr), int size) {
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size - 1; j++)
@@ -108,6 +109,6 @@ void InsertionSort(int *arr, int size) {
 				arr[j + 1] = temp;
 			}
 		}
-		
 	}
+
 }

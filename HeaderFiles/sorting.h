@@ -8,7 +8,7 @@ void QuickSort(std::vector<int> & vec);
 void QuickSort(std::vector<int> & vec, int start, int finish);
 int Partition(std::vector<int> & vec, int start, int finish);
 long RaiseToPower(int x, int n);
-void InsertionSort(int *arr, int size);
+void InsertionSort(int *(&arr), int size);
 #endif // !__sorting_h__
 
 
