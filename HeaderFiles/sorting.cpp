@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <random>
+#include <functional>
 #include "HeaderFiles\sorting.h"
 
 void SelectionSort(std::vector<int> & vec) {
@@ -11,6 +14,34 @@ void SelectionSort(std::vector<int> & vec) {
 				int temp = vec[i];
 				vec[i] = vec[j];
 				vec[j] = temp;
+			}
+		}
+	}
+}
+
+void InsertionSort(std::vector<int> & vec) {
+	for (int i = 0; i < vec.size(); i++)
+	{
+		for (int j = 0; j < vec.size() - 1; j++)
+		{
+			if (vec[j] > vec[j + 1]) {
+				int temp = vec[j];
+				vec[j] = vec[j + 1];
+				vec[j + 1] = temp;
+			}
+		}
+	}
+}
+
+void InsertionSort(int *(&arr), int size) {
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = 0; j < size - 1; j++)
+		{
+			if (arr[j] > arr[j + 1]) {
+				int temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
 			}
 		}
 	}
@@ -98,17 +129,30 @@ long RaiseToPower(int x, int n) {
 	}
 }
 
-void InsertionSort(int *(&arr), int size) {
-	for (int i = 0; i < size; i++)
-	{
-		for (int j = 0; j < size - 1; j++)
-		{
-			if (arr[j] > arr[j + 1]) {
-				int temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-			}
-		}
+void fillUpVector(std::vector<int> & vec, int n) {
+	srand(int(time(NULL)));
+	for (int i = 0; i < n; i++) {
+		vec.push_back(rand() % n);
 	}
+}
 
+//double ElapsedTime(void (*func)(std::vector<int> & vec), std::vector<int> & vec) {
+double ElapsedTime(std::function<void(std::vector<int> & vec)> sortFunction, std::vector<int> & vec) {
+	double start = 0.0, finish = 0.0, elapsed = 0.0;
+	if (vec.size() < 100) {
+		for (int i = 0; i < 1000; i++) {
+			start = double(clock()) / CLOCKS_PER_SEC;
+			sortFunction(vec);
+			finish = double(clock()) / CLOCKS_PER_SEC;
+			elapsed += finish - start;
+		}
+		elapsed /= 1000;
+	}
+	else {
+		start = double(clock()) / CLOCKS_PER_SEC;
+		sortFunction(vec);
+		finish = double(clock()) / CLOCKS_PER_SEC;
+		elapsed = finish - start;
+	}
+	return elapsed;
 }
