@@ -100,8 +100,19 @@ void QuickSort(std::vector<int> & vec, int start, int finish) {
 	QuickSort(vec, boundary + 1, finish);
 }
 
+int GetMedian(std::vector<int> & vec, int start, int finish) {
+	int mid = (start + finish) / 2;
+	std::vector<int> medianVec;
+	medianVec.push_back(vec[start]);
+	medianVec.push_back(vec[mid]);
+	medianVec.push_back(vec[finish]);
+	SelectionSort(medianVec);
+	return medianVec[1];
+}
+
 int Partition(std::vector<int> & vec, int start, int finish) {
-	int pivot = vec[start];
+	//int pivot = vec[start];
+	int pivot = GetMedian(vec, start, finish);
 	int lh = start + 1;
 	int rh = finish;
 	while (true) {
