@@ -156,3 +156,46 @@ double ElapsedTime(std::function<void(std::vector<int> & vec)> sortFunction, std
 	}
 	return elapsed;
 }
+
+double ElapsedTime(std::function<bool(std::vector<int> & vec, int key)> searchFunction, std::vector<int> & vec, int key) {
+	double start = 0.0, finish = 0.0, elapsed = 0.0;
+	for (int i = 0; i < 1000; i++) {
+		start = double(clock()) / CLOCKS_PER_SEC;
+		bool retVal = searchFunction(vec, key);
+		finish = double(clock()) / CLOCKS_PER_SEC;
+		elapsed += finish - start;
+	}
+	elapsed /= 1000;
+	return elapsed;
+}
+
+bool LinearSearch(std::vector<int> & vec, int key) {
+	for (std::vector<int>::iterator itr = vec.begin(); itr != vec.end(); ++itr) {
+		if (*itr == key) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool BinarySearch(std::vector<int> & vec, int key) {
+	int retVal = BinarySearchRecurse(vec, key, vec[0], vec[vec.size() - 1]);
+	if (retVal < 0) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+
+int BinarySearchRecurse(std::vector<int> & vec, int key, int low, int high) {
+	if (low > high) return -1;
+	int mid = (low + high) / 2;
+	if (key == mid) return mid;
+	if (key < vec[mid]) {
+		BinarySearchRecurse(vec, key, low, mid - 1);
+	}
+	else {
+		BinarySearchRecurse(vec, key, mid + 1, high);
+	}
+}
