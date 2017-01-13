@@ -6,12 +6,16 @@
 	in class is pointer type, then deep copy
 	is necessary, that copies what is pointed to.
 
+	This program gives error.
+	This program shows what kind of error one
+	can face when deep copy is not followed.
+
 	Oyashi
 	01/12/2017
 */
 
 #include <iostream>
-#include "HeaderFiles\charstack.h"
+#include "Chapter_9_ClassesObjects\HeaderFiles\charstack.h"
 
 using namespace std;
 
