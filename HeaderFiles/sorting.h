@@ -17,7 +17,8 @@ double ElapsedTime(std::function<void(std::vector<int> & vec)> sortFunction, std
 double ElapsedTime(std::function<bool(std::vector<int> & vec, int key)> searchFunction, std::vector<int> & vec, int key);
 bool LinearSearch(std::vector<int> & vec, int key);
 bool BinarySearch(std::vector<int> & vec, int key);
-int BinarySearchRecurse(std::vector<int> & vec, int key, int low, int high);
+int BinarySearchRecurse(std::vector<int> & vec, int key, int low, int high);;
+double ElapsedTime(std::vector<int> & vec, int threshold);
 #endif // !__sorting_h__
 
 

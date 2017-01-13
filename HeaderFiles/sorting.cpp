@@ -210,3 +210,26 @@ int BinarySearchRecurse(std::vector<int> & vec, int key, int low, int high) {
 		BinarySearchRecurse(vec, key, mid + 1, high);
 	}
 }
+
+/*
+	Hybrid Sort = Selection + Merge/Quick
+*/
+double ElapsedTime(std::vector<int> & vec, int threshold) {
+	double start = 0.0, finish = 0.0, elapsed = 0.0;
+	if (vec.size() < threshold) {
+		for (int i = 0; i < 1000; i++) {
+			start = double(clock()) / CLOCKS_PER_SEC;
+			SelectionSort(vec);
+			finish = double(clock()) / CLOCKS_PER_SEC;
+			elapsed += finish - start;
+		}
+		elapsed /= 1000;
+	}
+	else {
+		start = double(clock()) / CLOCKS_PER_SEC;
+		MergeSort(vec);
+		finish = double(clock()) / CLOCKS_PER_SEC;
+		elapsed = finish - start;
+	}
+	return elapsed;
+}
