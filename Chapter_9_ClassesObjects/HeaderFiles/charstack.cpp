@@ -61,5 +61,4 @@ void CharStack::expandCapacity() {
 	}
 	delete[] elements;
 	elements = arr;
-	delete[] arr;
 }
