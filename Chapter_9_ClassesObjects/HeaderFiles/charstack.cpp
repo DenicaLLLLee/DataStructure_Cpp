@@ -4,7 +4,7 @@
 * This file implements the CharStack class.
 */
 #include "genlib.h"
-#include "HeaderFiles\CharStack.h"
+#include "Chapter_9_ClassesObjects\HeaderFiles\charstack.h"
 /*
 * Implementation notes: CharStack constuctor and destructor
 * ---------------------------------------------------------
