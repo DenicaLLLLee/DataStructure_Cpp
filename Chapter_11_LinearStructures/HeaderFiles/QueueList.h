@@ -21,7 +21,7 @@ struct Node {
 template <class T>
 class QueueList {
 private:
-	Node<T>* head;
+	Node<T> *head, *tail;
 	int size;
 
 public:
@@ -30,33 +30,25 @@ public:
 	int sizeOfQueue();
 	bool isEmpty();
 	void clear();
-	void push(T value);
-	T pop();
+	void enqueue(T value);
+	T dequeue();
+	T peek();
 	void display();
 };
 
 
-#endif // !__Queuelist_h__
-
 template<class T>
 inline QueueList<T>::QueueList()
 {
-	head = NULL;
+	head = tail = NULL;
 	size = 0;
 }
 
 template<class T>
 inline QueueList<T>::~QueueList()
 {
-	if (head != NULL) {
-		Node<T> *curr = head;
-		while (curr != NULL) {
-			Node<T>* temp = curr->next;
-			delete curr;
-			curr = temp;
-		}
-		head = NULL;
-	}
+	while (size > 0)
+		T retVal = dequeue();
 }
 
 template<class T>
@@ -87,38 +79,32 @@ inline void QueueList<T>::clear()
 }
 
 template<class T>
-inline void QueueList<T>::push(T value)
+inline void QueueList<T>::enqueue(T value)
 {
 	Node<T> *newNode = new Node<T>(value);
 	if (head == NULL) {
 		head = newNode;
 	}
 	else {
-		Node<T>* curr = head;
-		while (curr != NULL) {
-			if (curr->next == NULL) {
-				curr->next = newNode;
-				break;
-			}
-			curr = curr->next;
-		}
+		tail->next = newNode;
 	}
+	tail = newNode;
 	size++;
 }
 
 template<class T>
-inline T QueueList<T>::pop()
+inline T QueueList<T>::dequeue()
 {
-	if (head == NULL || size == 0) {
+	if (isEmpty()) {
 		Error("Queue is empty");
 		return NULL;
 	}
 	else {
-		T temp;
-		temp = head->data;
-		Node<T> *tempNode = head->next;
-		delete head;
-		head = tempNode;
+		Node<T> *tempNode = head;
+		T temp = tempNode->data;
+		head = tempNode->next;
+		if (head == NULL) tail = NULL;
+		delete tempNode;
 		size--;
 		return temp;
 	}
@@ -137,3 +123,11 @@ inline void QueueList<T>::display()
 	}
 	std::cout << endl;
 }
+
+template <class T>
+inline T QueueList<T>::peek() {
+	if (isEmpty()) Error("Empty Queue");
+	return head->data;
+}
+
+#endif // !__Queuelist_h__
