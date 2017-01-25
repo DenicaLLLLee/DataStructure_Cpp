@@ -1,3 +1,9 @@
+/*
+	Header and inline implementation
+	of generic stacks using linked list
+	Oyashi
+	01/24/2017
+*/
 #pragma once
 #ifndef __stacklist_h__
 #define __stacklist_h__
