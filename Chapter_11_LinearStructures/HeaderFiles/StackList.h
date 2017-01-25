@@ -20,7 +20,7 @@ struct Node {
 template <class T>
 class StackList {
 private:
-	Node<T>* head;
+	Node<T> *head, *top;
 	int size;
 
 public:
@@ -31,6 +31,7 @@ public:
 	void clear();
 	void push(T value);
 	T pop();
+	T peek();
 	void display();
 };
 
@@ -40,22 +41,14 @@ public:
 template<class T>
 inline StackList<T>::StackList()
 {
-	head = NULL;
+	head = top = NULL;
 	size = 0;
 }
 
 template<class T>
 inline StackList<T>::~StackList()
 {
-	if (head != NULL) {
-		Node<T> *curr = head;
-		while (curr != NULL) {
-			Node<T>* temp = curr->next;
-			delete curr;
-			curr = temp;
-		}
-		head = NULL;
-	}
+	clear();
 }
 
 template<class T>
@@ -73,16 +66,8 @@ inline bool StackList<T>::isEmpty()
 template<class T>
 inline void StackList<T>::clear()
 {
-	if (head != NULL) {
-		Node<T> *curr = head;
-		while (curr != NULL) {
-			Node<T>* temp = curr->next;
-			delete curr;
-			curr = temp;
-		}
-		head = NULL;
-	}
-	size = 0;
+	while (!isEmpty())
+		T retVal = pop();
 }
 
 template<class T>
@@ -93,43 +78,40 @@ inline void StackList<T>::push(T value)
 		head = newNode;
 	}
 	else {
-		Node<T>* curr = head;
-		while (curr != NULL) {
-			if (curr->next == NULL) {
-				curr->next = newNode;
-				break;
-			}
-			curr = curr->next;
-		}
+		Node<T> *temp = head;
+		newNode->next = temp;
+		head = newNode;
 	}
+	top = newNode;
 	size++;
 }
 
 template<class T>
 inline T StackList<T>::pop()
 {
-	if (head == NULL || size == 0) {
-		Error("Stack is empty");
+	if (isEmpty()) {
+		Error("Empty stack");
 		return NULL;
 	}
 	else {
-		T temp;
-		if (size == 1) {
-			temp = head->data;
-			delete head;
-			head = NULL;
-		}
-		else {
-			Node<T>* curr = head;
-			while (curr->next->next) {
-				curr = curr->next;
-			}
-			temp = curr->next->data;
-			delete curr->next;
-			curr->next = NULL;
-		}
+		T temp = top->data;
+		head = top->next;
+		delete top;
+		top = head;
 		size--;
 		return temp;
+	}
+}
+
+template<class T>
+inline T StackList<T>::peek()
+{
+	if (isEmpty()) {
+		Error("Empty Stack");
+		return NULL;
+	}
+	else {
+		return top->data;
 	}
 }
 

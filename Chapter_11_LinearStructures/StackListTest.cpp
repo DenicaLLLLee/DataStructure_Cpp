@@ -1,5 +1,6 @@
 /*
-	Implementation of Stack using Linked List
+	Implementation of Efficient Generic Stack 
+	Using Linked List
 	Oyashi
 	01/24/2017
 */
@@ -28,4 +29,17 @@ int main() {
 	cout << "*********************************************" << endl;
 	intStack.display();
 	cout << "Size of Stack = " << intStack.sizeOfStack() << endl;
+	cout << "Again pushing elements" << endl;
+	intStack.push(7);
+	intStack.push(2);
+	intStack.push(4);
+	intStack.push(3);
+	intStack.push(7);
+	intStack.push(8);
+	intStack.display();
+	cout << "Size of Stack = " << intStack.sizeOfStack() << endl;
+	cout << "Popped element = " << intStack.pop() << endl;
+	cout << "*********************************************" << endl;
+	intStack.display();
+	cout << "Top element = " << intStack.peek() << endl;
 }
