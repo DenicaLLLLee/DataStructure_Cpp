@@ -1,3 +1,9 @@
+/*
+	Implementation of Stack using Linked List
+	Oyashi
+	01/24/2017
+*/
+
 #include <iostream>
 #include "Chapter_11_LinearStructures\HeaderFiles\StackList.h"
 
