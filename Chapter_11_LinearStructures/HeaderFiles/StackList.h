@@ -31,6 +31,7 @@ public:
 	void clear();
 	void push(T value);
 	T pop();
+	void display();
 };
 
 

@@ -14,15 +14,18 @@ int main() {
 	intStack.push(9);
 	intStack.push(4);
 	intStack.push(3);
-	cout << "Size of stack = " << intStack.sizeOfStack() << endl;
+	intStack.display();
+	cout << "Size of Stack = " << intStack.sizeOfStack() << endl;
 	cout << "Popped element = " << intStack.pop() << endl;
-	cout << "Size of stack = " << intStack.sizeOfStack() << endl;
+	cout << "*********************************************" << endl;
+	intStack.display();
+	cout << "Size of Stack = " << intStack.sizeOfStack() << endl;
 	cout << "Popped element = " << intStack.pop() << endl;
-	cout << "Size of stack = " << intStack.sizeOfStack() << endl;
+	cout << "*********************************************" << endl;
+	intStack.display();
+	cout << "Size of Stack = " << intStack.sizeOfStack() << endl;
 	cout << "Popped element = " << intStack.pop() << endl;
-	cout << "Size of stack = " << intStack.sizeOfStack() << endl;
-	cout << "Popped element = " << intStack.pop() << endl;
-	cout << "Size of stack = " << intStack.sizeOfStack() << endl;
-	cout << "Popped element = " << intStack.pop() << endl;
-	cout << "Size of stack = " << intStack.sizeOfStack() << endl;
+	cout << "*********************************************" << endl;
+	intStack.display();
+	cout << "Size of Stack = " << intStack.sizeOfStack() << endl;
 }
