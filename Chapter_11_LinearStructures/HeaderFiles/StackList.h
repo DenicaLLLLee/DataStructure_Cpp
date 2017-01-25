@@ -131,3 +131,17 @@ inline T StackList<T>::pop()
 		return temp;
 	}
 }
+
+template<class T>
+inline void StackList<T>::display()
+{
+	Node<T> *curr = head;
+	while (curr) {
+		std::cout << curr->data;
+		if (curr->next != NULL) {
+			std::cout << "->";
+		}
+		curr = curr->next;
+	}
+	std::cout << endl;
+}
