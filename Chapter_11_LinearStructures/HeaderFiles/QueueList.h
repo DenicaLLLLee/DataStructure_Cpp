@@ -31,6 +31,7 @@ public:
 	bool isEmpty();
 	void clear();
 	void enqueue(T value);
+	void enqueue(T value, double priority);
 	T dequeue();
 	T peek();
 	void display();
@@ -90,6 +91,32 @@ inline void QueueList<T>::enqueue(T value)
 	}
 	tail = newNode;
 	size++;
+}
+
+template<class T>
+inline void QueueList<T>::enqueue(T value, double priority)
+{
+	if (isEmpty()) Error("Empty queue");
+	else {
+		double index = 1;
+		Node<T> *newNode = new Node<T>(value);
+		Node<T> *curr = head;
+		bool valueEnqueued = false;
+		while (curr->next != NULL) {
+			if (index == priority) {
+				Node<T> *nextNode = curr->next;
+				curr->next = newNode;
+				newNode->next = nextNode;
+				valueEnqueued = true;
+			}
+			curr = curr->next;
+			index++;
+		}
+		if (!valueEnqueued) {
+			curr->next = newNode;
+		}
+		size++;
+	}
 }
 
 template<class T>
