@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include <string>
 #include "BinaryTree.h"
 
@@ -64,3 +65,18 @@ void BinaryTree::postOrderDisplay(Node * root)
 		std::cout << root->key << "->";
 	}
 }
+
+void BinaryTree::breadthFirstSearch(Node * root)
+{
+	std::queue<Node *> bfs;
+	if (root) bfs.push(root);
+	while (!bfs.empty()) {
+		Node *temp = bfs.front();
+		bfs.pop();
+		std::cout << temp->key << "->";
+		if (temp->right) bfs.push(temp->right);
+		if (temp->left) bfs.push(temp->left);
+	}
+}
+
+

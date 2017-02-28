@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <queue>
 #include "Chapter_13_Trees\HeaderFiles\BinaryTree.h"
 
 using namespace std;
@@ -28,6 +29,10 @@ int main() {
 	cout << endl;
 	cout << "Display PostOrder Traversal" << endl;
 	binaryTree.postOrderDisplay(node);
+	cout << endl;
+	cout << endl;
+	cout << "Display Level Order (BFS) Traversal" << endl;
+	binaryTree.breadthFirstSearch(node);
 	cout << endl;
 
 }

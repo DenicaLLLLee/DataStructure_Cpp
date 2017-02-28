@@ -19,5 +19,6 @@ public:
 	void displayTree(Node *root);
 	void preOrderDisplay(Node *root);
 	void postOrderDisplay(Node *root);
+	void breadthFirstSearch(Node *root);
 };
 
