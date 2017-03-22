@@ -18,5 +18,7 @@ int main() {
 	intStack.push(8);
 	intStack.push(9);
 	intStack.push(2);
+
+	cout << "Peek element = " << intStack.peek() << endl;
 	cout << "Popped element = " << intStack.pop() << endl;
 }

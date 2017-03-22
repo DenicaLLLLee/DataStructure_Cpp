@@ -17,6 +17,7 @@ public:
 	bool isEmpty();
 	void push(T elm);
 	T pop();
+	T peek();
 };
 #endif // !__stack_h__
 
@@ -72,6 +73,14 @@ inline T Stack<T>::pop()
 	if (isEmpty()) Error("Empty stack");
 	T temp = elements[count - 1];
 	count--;
+	return temp;
+}
+
+template<class T>
+inline T Stack<T>::peek()
+{
+	if (isEmpty()) Error("Empty stack");
+	T temp = elements[count - 1];
 	return temp;
 }
 
