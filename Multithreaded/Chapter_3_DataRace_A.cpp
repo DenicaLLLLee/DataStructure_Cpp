@@ -28,7 +28,7 @@ public:
 
 	void shared_print(string id, int value) {
 		std::lock_guard<mutex> locker(m_mutex);
-		cout << "from " << id << ":" << value << endl;
+		f << "from " << id << ":" << value << endl;
 	}
 };
 
@@ -46,7 +46,7 @@ int main() {
 		log.shared_print(string("from main"), i);
 	}
 
-	cout << "Hello Oyesh " << endl;
+	log.shared_print( "Hello Oyesh ", 1);
 
 	t1.join();
 	
